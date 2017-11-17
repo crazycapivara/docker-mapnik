@@ -1,0 +1,58 @@
+<Map background-color="transparent" minimum-version="0.7.2" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+  <Style name="population">
+    <Rule>
+      <Filter>[POP2005] &gt;= 0 and [POP2005] &lt; 15000</Filter>
+      <PolygonSymbolizer fill="#c7e9b4" /></Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 15000 and [POP2005] &lt; 255000</Filter>
+      <PolygonSymbolizer fill="#7fcdbb" /></Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 255000 and [POP2005] &lt; 1300000</Filter>
+      <PolygonSymbolizer fill="#1d91c0" /></Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 1300000 and [POP2005] &lt; 4320000</Filter>
+      <PolygonSymbolizer fill="#41b6c3" />
+    </Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 4320000 and [POP2005] &lt; 9450000</Filter>
+      <PolygonSymbolizer fill="#225ea8" />
+    </Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 9450000 and [POP2005] &lt; 25650000</Filter>
+      <PolygonSymbolizer fill="#225ea8" /></Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 25650000 and [POP2005] &lt; 1134000000</Filter>
+      <PolygonSymbolizer fill="#122F7F" /></Rule>
+    <Rule>
+      <ElseFilter />
+      <PolygonSymbolizer fill="darkred" />
+    </Rule>
+  </Style>
+  <Style name="country_labels">
+    <Rule>
+      <Filter>[POP2005] &gt;= 4320000 and [POP2005] &lt; 9450000</Filter>
+      <TextSymbolizer allow-overlap="false" avoid-edges="false" face-name="DejaVu Sans Bold" fill="black" halo-fill="#DFDBE3" halo-radius="1" minimum-distance="10" size="7" spacing="5" wrap-width="20">[NAME]</TextSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 9450000 and [POP2005] &lt; 25650000</Filter>
+      <TextSymbolizer allow-overlap="false" avoid-edges="false" face-name="DejaVu Sans Book" fill="black" halo-fill="#DFDBE3" halo-radius="1" minimum-distance="10" size="9" spacing="5" wrap-width="20">[NAME]</TextSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 25650000 and [POP2005] &lt; 1134000000</Filter>
+      <TextSymbolizer allow-overlap="false" avoid-edges="true" face-name="DejaVu Sans Book" fill="white" halo-fill="#2E2F39" halo-radius="1" minimum-distance="10" size="12" spacing="5" wrap-width="20">[NAME]</TextSymbolizer>
+    </Rule>
+    <Rule>
+      <Filter>[POP2005] &gt;= 1134000000</Filter>
+      <TextSymbolizer allow-overlap="true" avoid-edges="true" face-name="DejaVu Sans Book" fill="white" halo-fill="black" halo-radius="1" minimum-distance="10" size="15" spacing="5" wrap-width="20">[NAME]</TextSymbolizer>
+    </Rule>
+  </Style>
+  <Layer name="countries" srs="+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +no_defs +over">
+    <StyleName>population</StyleName>
+    <StyleName>country_labels</StyleName>
+    <Datasource>
+      <Parameter name="type">shape</Parameter>
+      <Parameter name="file">world_merc.shp</Parameter>
+    </Datasource>
+  </Layer>
+</Map>
+
